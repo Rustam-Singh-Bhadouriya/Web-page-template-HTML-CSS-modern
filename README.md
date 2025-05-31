@@ -1,9 +1,9 @@
 # 🌐 Modern Website Template
-`
-**Author:** Rustam Singh Bhadouriya  <br>
-**Version:** 1.0v  <br>
-**Type:** Open Source Template <br>
-`
+
+**Author:** Rustam Singh Bhadouriya
+**Version:** 1.0v
+**Type:** Open Source Template
+
 <br>
 A sleek, responsive, and modern HTML + CSS website template. Built for developers, designers, and anyone looking for a clean UI starting point. Fully open-source and ready to use or customize!
 
