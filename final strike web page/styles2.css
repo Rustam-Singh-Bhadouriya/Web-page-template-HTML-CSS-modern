@@ -1,0 +1,377 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* display: flex; */
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    /* display: flex; */
+}
+
+/* Header */
+header {
+    background-color: #29272781;
+    padding: 5px 15px;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Ensures items wrap on smaller screens */
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    margin-right: 10px;
+    max-width: 50px; /* Scales logo for small screens */
+    height: auto;
+    display: flex;
+}
+
+header .logo h1 {
+    color: #00aaff;
+    font-size: 1.5rem;
+    display: flex;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    margin-left: auto;
+    gap: 10px; /* Adds consistent spacing between items */
+    flex-wrap: wrap;
+}
+
+header ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    position:relative;
+    font-size: 1rem; /* Makes font size scalable */
+}
+header ul li {
+    margin-left: 15px;
+    /* flex-direction: row; */
+}
+
+header ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #0b33e3;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: right;
+}
+
+header ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+header ul li a:hover {
+    color: #7c8eea;
+    transform: scale(1.1);
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('blurgun.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    padding: 20px; /* Adds padding for smaller screens */
+}
+
+.hero .container {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%; 
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #1acbee;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.download-btn {
+    background-color: rgb(0, 8, 255);
+    color: rgb(255, 255, 255);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.download-btn:hover {
+    background-color: #5d10c2f5;
+    box-shadow: 0 0 20px 5px rgba(13, 95, 226, 0.8);
+}
+
+.join {
+    background-color: rgb(0, 8, 255);
+    color: rgb(255, 255, 255);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.join:hover {
+    background-color: #5d10c2f5;
+    box-shadow: 0 0 20px 5px rgba(13, 95, 226, 0.8);
+}
+
+/* Paper element style */
+.paper {
+    position: absolute;
+    width: 6px; /* Larger paper size */
+    height: 6px; /* Larger paper size */
+    background-color: #f1f1f1;
+    border-radius: none;
+    display: none; /* Initially hidden */
+    opacity: 1;
+}
+
+/* Throw paper animation */
+.throw-paper {
+    animation: throwAnimation 2s ease-out forwards;
+}
+
+@keyframes throwAnimation {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(var(--x), var(--y)) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x2), var(--y2)) rotate(360deg);
+        opacity: 0;
+    }
+}
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+.menu{
+    display: none;
+}
+
+@media screen and (max-width:945px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* display: flex; */
+    }
+    
+    /* Global Styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        /* display: flex; */
+    }
+    
+    /* Header */
+    header {
+        background-color: #29272781;
+        padding: 5px 5px;
+        width: 100%;
+        /* position: fixed; */
+        display: block;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+    
+    header nav {
+        display: block;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; /* Ensures items wrap on smaller screens */
+    }
+    .menu{
+        display: block;
+        margin-top: -40px;
+        height: 30px;
+        width: 30px;
+        float: right;
+    }
+    
+    header .logo {
+        display: flex;
+        align-items: center;
+    }
+    
+    header .logo img {
+        margin-right: 10px;
+        max-width: 50px; /* Scales logo for small screens */
+        height: auto;
+        display: block;
+    }
+    
+    header .logo h1 {
+        color: #00aaff;
+        font-size: 1.5rem;
+        display: none;
+    }
+    
+    header ul {
+        list-style: none;
+        display: none;
+        margin-left: auto;
+        gap: 10px; /* Adds consistent spacing between items */
+        flex-wrap: wrap;
+    }
+    
+    header ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 5px 10px;
+        transition: all 0.3s ease;
+        position: relative;
+        font-size: 1rem; /* Makes font size scalable */
+    }
+    header ul li {
+        margin-left: 15px;
+    }
+    
+    header ul li a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #0b33e3;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+        transform-origin: right;
+    }
+    
+    header ul li a:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+    
+    header ul li a:hover {
+        color: #7c8eea;
+        transform: scale(1.1);
+    }
+    .final-h2 {
+        display: none;
+    }
+
+    
+/* Hero Section */
+.hero {
+    background-image: url('blurgun.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    padding: 20px; /* Adds padding for smaller screens */
+}
+
+.hero .container {
+    /* for change the box of that thing. */
+    background: rgba(0, 0, 0, 0);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%; 
+}
+
+
+.hero h2 {
+    font-size: 1.3rem;
+    margin-bottom: 13px;
+    color: #1acbee;
+}
+
+.hero p {
+    font-size: 0.8rem;
+    margin-bottom: 21px;
+}
+
+.download-btn {
+    background-color: rgb(0, 8, 255);
+    color: rgb(255, 255, 255);
+    padding: 6px 12px;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.download-btn:hover {
+    background-color: #5d10c2f5;
+    box-shadow: 0 0 15px 5px rgba(13, 95, 226, 0.8);
+}
+
+
+}

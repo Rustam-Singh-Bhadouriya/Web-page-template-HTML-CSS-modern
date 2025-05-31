@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Final Strike</title>
+    <meta name="description" content="Frequently Asked Questions about Final Strike, the revived IGI2 Multiplayer experience.">
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="icon" type="image/x-icon" href="logo fs .png">
+    <style>
+        /* Styles for FAQ Page */
+        body {
+            /* background-color: black;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0; */
+            background-image: url('blurgun.jpg'); /* Use the path of the uploaded image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+        header {
+            background-color: #2927276a;
+            padding: 5px 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+        header ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+        }
+        header ul li {
+            margin-left: 15px;
+        }
+        header ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            transition: color 0.3s;
+        }
+        header ul li a:hover {
+            color: #00aaff;
+        }
+        .faq-section {
+            padding: 80px 20px; /* Adjust padding to account for fixed header */
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-section h2 {
+            text-align: center;
+            color: #0b33e3;
+            margin-bottom: 20px;
+        }
+        .hero {
+        background-image: url('blurgun.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        padding: 20px; /* Adds padding for smaller screens */
+        }
+        .faq {
+            margin-bottom: 10px;
+        }
+        .faq-question {
+            background-color: #0f060628;
+            padding: 15px;
+            border: 1px solid #ffffff;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .faq-question:hover {
+            background-color: #040b7180;
+        }
+        .faq-answer {
+            padding: 15px;
+            border: 1px solid #ffffff9e;
+            border-top: none;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo fs .png" alt="Final Strike" width="50" height="50">
+                <h1>⚡𝓕𝓲𝓷𝓪𝓵 𝓢𝓽𝓻𝓲𝓴𝓮⚡</h1>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="how-to-setup.html">How To Setup</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="maps.html">Maps</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+            <div class="faq-question">What is Final Strike?</div>
+            <div class="faq-answer" style="color: wheat;">
+                Final Strike is a multiplayer gaming community that has revived the action-packed IGI 2 multiplayer, providing a platform for both veterans and newcomers.
+            </div>
+        </div>
+        <div class="faq">
+            <div class="faq-question">How do I set up the game?</div>
+            <div class="faq-answer">
+                You can follow our step-by-step guide on the <a href="how-to-setup.html">How To Setup</a> page to install and configure the game.
+            </div>
+        </div>
+        <div class="faq">
+            <div class="faq-question">Where can I download the game?</div>
+            <div class="faq-answer">
+                The game files and updates are available for download on our <a href="downloads.html">Downloads</a> page.
+            </div>
+        </div>
+        <div class="faq">
+            <div class="faq-question">Are there any new maps available?</div>
+            <div class="faq-answer">
+                Yes! Check out the latest maps and community creations on our <a href="maps.html">Maps</a> page.
+            </div>
+        </div>
+        <div class="faq">
+            <div class="faq-question">Is Final Strike free?</div>
+            <div class="faq-answer">
+                Yes, Final Strike is completely free to download and play.
+            </div>
+        </div>
+    </section>
+    <script>
+        // JavaScript for FAQ Toggle with Close Others and Auto-Close
+        let autoCloseTimer;
+
+        const questions = document.querySelectorAll('.faq-question');
+
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                // Close all open answers and clear any existing timer
+                const allAnswers = document.querySelectorAll('.faq-answer');
+                const allQuestions = document.querySelectorAll('.faq-question');
+                allAnswers.forEach(answer => answer.style.display = 'none');
+                allQuestions.forEach(q => q.classList.remove('active'));
+
+                clearTimeout(autoCloseTimer);
+
+                // Open the clicked question if it's not already active
+                const answer = question.nextElementSibling;
+                if (!question.classList.contains('active')) {
+                    answer.style.display = 'block';
+                    question.classList.add('active');
+
+                    // Set a timer to auto-close after 10 seconds
+                    autoCloseTimer = setTimeout(() => {
+                        answer.style.display = 'none';
+                        question.classList.remove('active');
+                    }, 6000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

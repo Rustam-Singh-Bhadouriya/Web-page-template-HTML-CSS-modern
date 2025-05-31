@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGI 2 MULTIPLAYER By Final Strike</title>
+    <link rel="stylesheet" href="styles2.css">
+    <meta name="description" content="Get IGI 2 Multiplayer for free and Play with your near Fiends smoothly">
+    <link rel="icon" type="image/x-icon" href="logo fs .png">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo fs .png" alt="Final Strike" width="50" height="50"> <!-- Add your logo here -->
+            </div>
+            <div class="logo">
+                <h1 class="final-h2">⚡𝓕𝓲𝓷𝓪𝓵 𝓢𝓽𝓻𝓲𝓴𝓮⚡</h1>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="how-to-setup.html">How To Setup</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="maps.html">Maps</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+        <img src="menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" alt="menu" class="menu">
+    </header>
+    <a href="background.png"></a>
+    <section class="hero">
+        <div class="container">
+            <img src="logo fs .png" alt="fs logo" height="50">
+            <h2 >⚡𝓕𝓲𝓷𝓪𝓵 𝓢𝓽𝓻𝓲𝓴𝓮⚡</h2>
+            <p>An official gaming community working with IGI 2 MULTIPLAYER Louncher for free download and enjoy MULTIPLAYER smothly</p>
+            <a href="#" class="download-btn" onclick="throwPaper(event)">Download</a>
+
+    <!-- Paper element that will be thrown -->
+            <div class="paper" id="paper"></div>
+        </div>
+    </section>
+    <!-- <footer>
+        <p>© 2024-2027 GTA:SAN CopyTeam Officials Copyright. All rights reserved.</p>
+    </footer> -->
+    <script>
+        function throwPaper(event) {
+            // Prevent the default anchor click behavior
+            event.preventDefault();
+
+            const button = document.querySelector('.download-btn');
+
+            // Create 15 paper elements
+            for (let i = 0; i < 15; i++) {
+                const paper = document.createElement('div');
+                paper.classList.add('paper');
+                document.body.appendChild(paper);
+
+                // Generate a random color for the paper
+                const randomColor = getRandomColor();
+                paper.style.backgroundColor = randomColor;
+
+                // Randomize the direction of movement (both x and y axis)
+                const xDirection = (Math.random() - 0.5) * 400;  // Random X movement range
+                const yDirection = -(Math.random() * 300 + 100); // Random Y upward movement range
+                const xEnd = (Math.random() - 0.5) * 400;  // Random final X position
+                const yEnd = -(Math.random() * 300 + 300); // Random final Y position
+
+                // Set CSS variables for the animation
+                paper.style.setProperty('--x', `${xDirection}px`);
+                paper.style.setProperty('--y', `${yDirection}px`);
+                paper.style.setProperty('--x2', `${xEnd}px`);
+                paper.style.setProperty('--y2', `${yEnd}px`);
+
+                // Position the paper near the button
+                const buttonRect = button.getBoundingClientRect();
+                const offsetX = (Math.random() - 0.5) * 100; // Random horizontal offset near the button
+                const offsetY = (Math.random() - 0.5) * 100; // Random vertical offset near the button
+                paper.style.left = `${buttonRect.left + buttonRect.width / 2 - 50 + offsetX}px`;
+                paper.style.top = `${buttonRect.top + window.scrollY + 50 + offsetY}px`;
+
+                // Make the paper visible and start the animation
+                paper.style.display = 'block';
+                paper.style.animation = 'throwAnimation 2s ease-out forwards';
+
+                // Hide the paper after the animation completes (2 seconds)
+                setTimeout(() => {
+                    paper.style.display = 'none';
+                    paper.remove(); // Remove the paper from the DOM
+                }, 2000);
+            }
+        }
+
+        // Function to generate a random color
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+</body>
+</html>

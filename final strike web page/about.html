@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Final Strike</title>
+    <meta name="description" content="About 'Final Strike', lounched IGI2 Multiplayer for free">
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="icon" type="image/x-icon" href="logo fs .png">
+    <style>
+    .container {
+    display: block; /* Stack items vertically */
+    text-align: center; /* Center text */
+    width: 70%; /* Set a fixed width to control line length */
+    margin: 0 auto; /* Center the container horizontally */
+    font-family: 'Arial', sans-serif;
+    line-height: 1.5; /* Set the line height to be a little less for a poem-like feel */
+    text-align: justify; /* Justify text to make the lines uniform in length */
+}
+
+.container img {
+    display: block; /* Ensure the image is on its own line */
+    margin: 0 auto 15px; /* Center the image and give a small gap below */
+}
+
+.container h2, .container h3, .container article {
+    margin: 2px 0; /* Very small gap between lines */
+    font-size: 1.1rem; /* Uniform font size for a clean look */
+    color: #0954f5; /* Dark color for readability */
+    max-width: 100%; /* Make sure the articles take the full container width */
+    word-wrap: break-word; /* Ensure words break if necessary to fit the line */
+}
+
+.container h2 {
+    font-size: 1.5rem; /* Slightly larger for the heading */
+    color: #007bff; /* A blue color for emphasis */
+    margin-top: 10px;
+}
+
+.container h3 {
+    font-size: 1.2rem; /* Uniform size for subheadings */
+    color: #0ac1ac; /* Darker color for a more subtle look */
+}
+
+.container article {
+    font-size: 1.1rem;
+    color: #ffffff; /* Slightly lighter color for articles */
+    line-height: 1.4; /* Keep the text close together */
+    margin-bottom: 3px; /* Small gap between articles */
+}
+
+.join {
+    background-color: rgba(119, 0, 255, 0.39);
+    color: rgb(255, 255, 255);
+    padding: 3px 40px;
+    border: none;
+    
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.join:hover {
+    background-color: #5d10c241;
+    box-shadow: 0 0 20px 5px rgba(13, 95, 226, 0.8);
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo fs .png" alt="Final Strike" width="50" height="50"> <!-- Add your logo here -->
+            </div>
+            <div class="logo">
+                <h1>⚡𝓕𝓲𝓷𝓪𝓵 𝓢𝓽𝓻𝓲𝓴𝓮⚡</h1>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="how-to-setup.html">How To Setup</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="maps.html">Maps</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <!-- <h2>How To Setup</h2> -->
+             <img src = "logo fs .png" alt = "fs" width="100" height="100">
+            <h2>About ⚡𝓕𝓲𝓷𝓪𝓵 𝓢𝓽𝓻𝓲𝓴𝓮⚡</h2>
+            <article>Final Strike is more than a gaming community—it's a movement!</article>
+            <article>Experience the thrill of IGI 2 multiplayer like never before.</article>
+            <article>blending nostalgia with innovation. With free downloads,</article>
+            <a href="#" class="join" onclick="throwPaper(event)">Discord</a>
+            <div class="paper" id="paper"></div>
+        </div>
+    </section>
+    <!-- <footer>
+        <p><big>©</big> 2024-2027 Final Strike Officials Copyright. All rights reserved.</p>
+    </footer> -->
+    <script>
+        function throwPaper(event) {
+            // Prevent the default anchor click behavior
+            event.preventDefault();
+
+            const button = document.querySelector('.join');
+
+            // Create 15 paper elements
+            for (let i = 0; i < 15; i++) {
+                const paper = document.createElement('div');
+                paper.classList.add('paper');
+                document.body.appendChild(paper);
+
+                // Generate a random color for the paper
+                const randomColor = getRandomColor();
+                paper.style.backgroundColor = randomColor;
+
+                // Randomize the direction of movement (both x and y axis)
+                const xDirection = (Math.random() - 0.5) * 400;  // Random X movement range
+                const yDirection = -(Math.random() * 300 + 100); // Random Y upward movement range
+                const xEnd = (Math.random() - 0.5) * 400;  // Random final X position
+                const yEnd = -(Math.random() * 300 + 300); // Random final Y position
+
+                // Set CSS variables for the animation
+                paper.style.setProperty('--x', `${xDirection}px`);
+                paper.style.setProperty('--y', `${yDirection}px`);
+                paper.style.setProperty('--x2', `${xEnd}px`);
+                paper.style.setProperty('--y2', `${yEnd}px`);
+
+                // Position the paper near the button
+                const buttonRect = button.getBoundingClientRect();
+                const offsetX = (Math.random() - 0.5) * 100; // Random horizontal offset near the button
+                const offsetY = (Math.random() - 0.5) * 100; // Random vertical offset near the button
+                paper.style.left = `${buttonRect.left + buttonRect.width / 2 - 50 + offsetX}px`;
+                paper.style.top = `${buttonRect.top + window.scrollY + 50 + offsetY}px`;
+
+                // Make the paper visible and start the animation
+                paper.style.display = 'block';
+                paper.style.animation = 'throwAnimation 2s ease-out forwards';
+
+                // Hide the paper after the animation completes (2 seconds)
+                setTimeout(() => {
+                    paper.style.display = 'none';
+                    window.location.href = "https://discord.gg/qMG3FNhy67";
+                    paper.remove(); // Remove the paper from the DOM
+                }, 2000);
+            }
+        }
+
+        // Function to generate a random color
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+</body>
+</html>
